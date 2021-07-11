@@ -1,0 +1,3 @@
+[submodule "experiments/xArmServoController"]
+	path = experiments/xArmServoController
+	url = git@github.com:bign8/xArmServoController.git
