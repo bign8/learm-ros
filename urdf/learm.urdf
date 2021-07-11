@@ -1,64 +1,119 @@
 <?xml version="1.0"?>
 <robot name="LeArm">
-  <!-- UNITS DISTANCE(METERS) ROTATION(RADIANS) -->
+	<!-- UNITS DISTANCE(METERS) ROTATION(RADIANS) -->
+	<link name="base_link">
+		<visual>
+			<origin xyz="0 0 0.035"/>
+			<geometry>
+				<cylinder length="0.070" radius="0.060"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="shoulder_link">
+		<visual>
+			<origin xyz="0 0 -0.006"/>
+			<geometry>
+				<cylinder length="0.012" radius="0.040"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="humerus_link">
+		<visual>
+			<origin xyz="0 0 0.050"/>
+			<geometry>
+				<box size="0.025 0.055 0.130"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="forearm_link">
+		<visual>
+			<origin xyz="0 0 0.047"/>
+			<geometry>
+				<box size="0.025 0.055 0.110"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="wrist_link">
+		<visual>
+			<origin xyz="-0.011 0.006 0.024"/>
+			<geometry>
+				<box size="0.058 0.045 0.070"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="hand_link">
+		<visual>
+			<origin xyz="-0.016 0.003 0.026"/>
+			<geometry>
+				<box size="0.055 0.057 0.052"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="grip_left_link">
+		<visual>
+			<origin xyz="0 0 0.012"/>
+			<geometry>
+				<box size="0.010 0.012 0.096"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="grip_right_link">
+		<visual>
+			<origin xyz="0 0 0.012"/>
+			<geometry>
+				<box size="0.010 0.012 0.096"/>
+			</geometry>
+		</visual>
+	</link>
 
-	<link name="base_link"></link>
-  <link name="shoulder_link"></link>
-  <link name="humerus_link"></link>
-  <link name="forearm_link"></link>
-  <link name="wrist_link"></link>
-  <link name="hand_link"></link>
-  <link name="grip_left_link"></link>
-  <link name="grip_right_link"></link>
-
-  <joint name="shoulder_pan" type="revolute">
-    <parent link="base_link"/>
-    <child link="shoulder_link"/>
-    <origin xyz="0 0 0.070" rpy="0 0 0"/>
-    <axis xyz="0 0 1"/>
-    <limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
-  </joint>
-  <joint name="shoulder_lift" type="revolute">
-    <parent link="shoulder_link"/>
-    <child link="humerus_link"/>
-    <origin xyz="0 0 0.015" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
-    <limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
-  </joint>
-  <joint name="elbow" type="revolute">
-    <parent link="humerus_link"/>
-    <child link="forearm_link"/>
-    <origin xyz="0 0 0.105" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
-    <limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
-  </joint>
-  <joint name="wrist_flex" type="revolute">
-    <parent link="forearm_link"/>
-    <child link="wrist_link"/>
-    <origin xyz="0 0 0.090" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
-    <limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
-  </joint>
-  <joint name="wrist_roll" type="revolute">
-    <parent link="wrist_link"/>
-    <child link="hand_link"/>
-    <origin xyz="0 0 0.065" rpy="0 0 0"/>
-    <axis xyz="0 0 1"/>
-    <limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
-  </joint>
-  <joint name="grip_left" type="revolute">
-    <parent link="hand_link"/>
-    <child link="grip_left_link"/>
-    <origin xyz="0 +0.015 0.035" rpy="0 0 0"/>
-    <axis xyz="1 0 0"/>
-    <limit lower="-1.57" upper="0" effort="1000" velocity="0.5"/>
-  </joint>
-  <joint name="grip_right" type="revolute">
-    <parent link="hand_link"/>
-    <child link="grip_right_link"/>
-    <origin xyz="0 -0.015 0.035" rpy="0 0 0"/>
-    <axis xyz="1 0 0"/>
-    <limit lower="0" upper="1.57" effort="1000" velocity="0.5"/>
-  </joint>
+	<joint name="shoulder_pan" type="revolute">
+		<parent link="base_link"/>
+		<child link="shoulder_link"/>
+		<origin xyz="0 0 0.070"/>
+		<axis xyz="0 0 1"/>
+		<limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
+	</joint>
+	<joint name="shoulder_lift" type="revolute">
+		<parent link="shoulder_link"/>
+		<child link="humerus_link"/>
+		<origin xyz="0 0 0.015"/>
+		<axis xyz="0 1 0"/>
+		<limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
+	</joint>
+	<joint name="elbow" type="revolute">
+		<parent link="humerus_link"/>
+		<child link="forearm_link"/>
+		<origin xyz="0 0 0.105"/>
+		<axis xyz="0 1 0"/>
+		<limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
+	</joint>
+	<joint name="wrist_flex" type="revolute">
+		<parent link="forearm_link"/>
+		<child link="wrist_link"/>
+		<origin xyz="0 0 0.090"/>
+		<axis xyz="0 1 0"/>
+		<limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
+	</joint>
+	<joint name="wrist_roll" type="revolute">
+		<parent link="wrist_link"/>
+		<child link="hand_link"/>
+		<origin xyz="0 0 0.065"/>
+		<axis xyz="0 0 1"/>
+		<limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
+	</joint>
+	<joint name="grip_left" type="revolute">
+		<parent link="hand_link"/>
+		<child link="grip_left_link"/>
+		<origin xyz="0 +0.015 0.035"/>
+		<axis xyz="1 0 0"/>
+		<limit lower="-1.57" upper="0" effort="1000" velocity="0.5"/>
+	</joint>
+	<joint name="grip_right" type="revolute">
+		<parent link="hand_link"/>
+		<child link="grip_right_link"/>
+		<origin xyz="0 -0.015 0.035"/>
+		<axis xyz="1 0 0"/>
+		<limit lower="0" upper="1.57" effort="1000" velocity="0.5"/>
+	</joint>
 </robot>
 
