@@ -24,9 +24,8 @@
 	</link>
 	<link name="forearm_link">
 		<visual>
-			<origin xyz="0 0 0.047"/>
 			<geometry>
-				<box size="0.025 0.055 0.110"/>
+				<mesh filename="package://learm-ros/meshes/forearm.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 		</visual>
 	</link>
