@@ -38,9 +38,8 @@
 	</link>
 	<link name="hand_link">
 		<visual>
-			<origin xyz="-0.016 0.003 0.026"/>
 			<geometry>
-				<box size="0.055 0.057 0.052"/>
+				<mesh filename="package://learm-ros/meshes/hand.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 		</visual>
 	</link>
