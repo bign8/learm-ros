@@ -31,9 +31,8 @@
 	</link>
 	<link name="wrist_link">
 		<visual>
-			<origin xyz="-0.011 0.006 0.024"/>
 			<geometry>
-				<box size="0.058 0.045 0.070"/>
+				<mesh filename="package://learm-ros/meshes/wrist.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 		</visual>
 	</link>
