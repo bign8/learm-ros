@@ -3,17 +3,15 @@
 	<!-- UNITS DISTANCE(METERS) ROTATION(RADIANS) -->
 	<link name="base_link">
 		<visual>
-			<origin xyz="0 0 0.035"/>
 			<geometry>
-				<cylinder length="0.070" radius="0.060"/>
+				<mesh filename="package://learm-ros/meshes/base.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 		</visual>
 	</link>
 	<link name="shoulder_link">
 		<visual>
-			<origin xyz="0 0 -0.006"/>
 			<geometry>
-				<cylinder length="0.012" radius="0.040"/>
+				<mesh filename="package://learm-ros/meshes/shoulder.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 		</visual>
 	</link>
@@ -69,7 +67,7 @@
 	<joint name="shoulder_pan" type="revolute">
 		<parent link="base_link"/>
 		<child link="shoulder_link"/>
-		<origin xyz="0 0 0.070"/>
+		<origin xyz="0 0 0.059"/>
 		<axis xyz="0 0 1"/>
 		<limit lower="-1.57" upper="1.57" effort="1000" velocity="0.5"/>
 	</joint>
