@@ -77,17 +77,16 @@
 	</link>
 	<link name="finger_left_link">
 		<visual>
-			<origin xyz="0 0 0.012"/>
 			<geometry>
-				<box size="0.010 0.012 0.096"/>
+				<mesh filename="package://learm-ros/meshes/finger.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 		</visual>
 	</link>
 	<link name="finger_right_link">
 		<visual>
-			<origin xyz="0 0 0.012"/>
+			<origin rpy="0 0 3.14159"/>
 			<geometry>
-				<box size="0.010 0.012 0.096"/>
+				<mesh filename="package://learm-ros/meshes/finger.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 		</visual>
 	</link>
