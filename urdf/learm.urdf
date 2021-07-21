@@ -61,17 +61,15 @@
 	</link>
 	<link name="tendon_left_link">
 		<visual>
-			<origin xyz="0 0 0.012"/>
 			<geometry>
-				<box size="0.010 0.012 0.096"/>
+				<mesh filename="package://learm-ros/meshes/tendon.stl"/>
 			</geometry>
 		</visual>
 	</link>
 	<link name="tendon_right_link">
 		<visual>
-			<origin xyz="0 0 0.012"/>
 			<geometry>
-				<box size="0.010 0.012 0.096"/>
+				<mesh filename="package://learm-ros/meshes/tendon.stl"/>
 			</geometry>
 		</visual>
 	</link>
