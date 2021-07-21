@@ -4,42 +4,42 @@
 	<link name="base_link">
 		<visual>
 			<geometry>
-				<mesh filename="package://learm-ros/meshes/base.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://learm-ros/meshes/base.stl"/>
 			</geometry>
 		</visual>
 	</link>
 	<link name="shoulder_link">
 		<visual>
 			<geometry>
-				<mesh filename="package://learm-ros/meshes/shoulder.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://learm-ros/meshes/shoulder.stl"/>
 			</geometry>
 		</visual>
 	</link>
 	<link name="humerus_link">
 		<visual>
 			<geometry>
-				<mesh filename="package://learm-ros/meshes/humerus.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://learm-ros/meshes/humerus.stl"/>
 			</geometry>
 		</visual>
 	</link>
 	<link name="forearm_link">
 		<visual>
 			<geometry>
-				<mesh filename="package://learm-ros/meshes/forearm.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://learm-ros/meshes/forearm.stl"/>
 			</geometry>
 		</visual>
 	</link>
 	<link name="wrist_link">
 		<visual>
 			<geometry>
-				<mesh filename="package://learm-ros/meshes/wrist.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://learm-ros/meshes/wrist.stl"/>
 			</geometry>
 		</visual>
 	</link>
 	<link name="hand_link">
 		<visual>
 			<geometry>
-				<mesh filename="package://learm-ros/meshes/hand.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://learm-ros/meshes/hand.stl"/>
 			</geometry>
 		</visual>
 	</link>
@@ -78,7 +78,7 @@
 	<link name="finger_left_link">
 		<visual>
 			<geometry>
-				<mesh filename="package://learm-ros/meshes/finger.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://learm-ros/meshes/finger.stl"/>
 			</geometry>
 		</visual>
 	</link>
@@ -86,7 +86,7 @@
 		<visual>
 			<origin rpy="0 0 3.14159"/>
 			<geometry>
-				<mesh filename="package://learm-ros/meshes/finger.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://learm-ros/meshes/finger.stl"/>
 			</geometry>
 		</visual>
 	</link>
