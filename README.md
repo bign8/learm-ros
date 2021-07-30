@@ -21,3 +21,12 @@ Any contributions made in good faith are welcome, especially if they are documen
   - Has some useful documentation committed to the project.
 - [ned_ros](https://github.com/NiryoRobotics/ned_ros) - A full fledged project for a similar type of robot.
   - Some inspiratoin for this project?
+- [servo controller](https://www.hiwonder.hk/products/lsc-6-hiwonder-6-ch-bluetooth-4-0-servo-controller-module-over-current-protection-remote-control-rc-parts-robot-toy-for-children?_pos=1&_sid=b04c241c9&_ss=r) - The servo controller the robot I own might be using
+  - [LeswanSoul Bus Servo Communication Protocol](https://images-na.ssl-images-amazon.com/images/I/71WyZDfQwkL.pdf)
+  - [LSC-24 Servo Controller User Manual](https://usermanual.wiki/Document/LSC2420Servo20Controller20User20Manual.901505409/view)
+  - [Dropbox : Servo Controller](https://www.dropbox.com/sh/b3v81sb9nwir16q/AABHb3nPSC7uUFfrnu30RyrCa?dl=0&lst=)
+- Learning ROS
+  - [How to command join posiiton of a robot in ROS using Python](https://www.theconstructsim.com/ros-qa-149-how-to-command-joint-position-of-a-robot-in-ros-using-python/)
+  - [ROS Control](https://www.rosroboticslearning.com/ros-control)
+  - [How to implement ros_control on a custom robot](https://slaterobotics.medium.com/how-to-implement-ros-control-on-a-custom-robot-748b52751f2e)
+  - [Dropbox : LeArm Expansion](https://drive.google.com/drive/folders/1XROWMoxATQgtth6PfmkJGh0ac2aASvfC) - Model sources provided by manufacturer.
