@@ -17,3 +17,7 @@ roslaunch urdf_tutorial display.launch model:=learm.urdf
 
 * URDF Tutorials: http://wiki.ros.org/urdf/Tutorials
 * XML Specification: http://wiki.ros.org/urdf/XML
+
+## RVIS configuration
+
+Stored in `/opt/ros/noetic/share/urdf_tutiorial/rviz/urdf.rviz`

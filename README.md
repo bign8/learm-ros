@@ -30,3 +30,11 @@ Any contributions made in good faith are welcome, especially if they are documen
   - [ROS Control](https://www.rosroboticslearning.com/ros-control)
   - [How to implement ros_control on a custom robot](https://slaterobotics.medium.com/how-to-implement-ros-control-on-a-custom-robot-748b52751f2e)
   - [Dropbox : LeArm Expansion](https://drive.google.com/drive/folders/1XROWMoxATQgtth6PfmkJGh0ac2aASvfC) - Model sources provided by manufacturer.
+
+## Running
+
+I ran into some problems getting rviz woring with openGL, but was able to force it with:
+
+```sh
+export LIBGL_ALWAYS_SOFTWARE=1
+```
