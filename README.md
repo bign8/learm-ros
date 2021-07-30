@@ -11,6 +11,7 @@ Any contributions made in good faith are welcome, especially if they are documen
 
 - Experiments - Attempting to communication with LeArm via Python
 - URDF - Unified Robot Description Format
+- Meshes - 3d models of the links of the physical robot (referenced by URDF)
 
 ## Related Projects / Links
 
