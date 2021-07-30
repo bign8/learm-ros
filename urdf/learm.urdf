@@ -45,9 +45,8 @@
 	</link>
 	<link name="grip_left_link">
 		<visual>
-			<origin xyz="0 0 0.012"/>
 			<geometry>
-				<box size="0.010 0.012 0.096"/>
+				<mesh filename="package://learm-ros/meshes/carpal-left.stl"/>
 			</geometry>
 		</visual>
 	</link>
