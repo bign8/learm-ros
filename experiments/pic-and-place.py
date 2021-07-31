@@ -4,7 +4,10 @@ import time
 try:
   arm = xarm.Controller('USB', debug=True)
 except OSError:
+  print("Failed to connect to LeArm")
   print("Checkout the docs: https://github.com/ccourson/xArmServoController/blob/main/Python/README.md")
+  import sys
+  sys.exit(1)
 
 print('Battery voltage in volts:', arm.getBatteryVoltage())
 
