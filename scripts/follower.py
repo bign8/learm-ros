@@ -18,11 +18,11 @@ print('Battery voltage in volts:', arm.getBatteryVoltage())
 # FUTURE: read the current robot position from controller and update memory state
 servos = {
     "shoulder_pan": xarm.Servo(6, -1),
-    "shoulder_lift": xarm.Servo(5, -1),  # Flipped in URDF
+    "shoulder_lift": xarm.Servo(5, -1),
     "elbow": xarm.Servo(4, -1),
     "wrist_flex": xarm.Servo(3, -1),
     "wrist_roll": xarm.Servo(2, -1),
-    "grip_left": xarm.Servo(1, -1),  # Flipped in URDF (wrong side of scale)
+    "grip_right": xarm.Servo(1, -1),  # Flipped in URDF (open is close)
 }
 
 def recv_sensorMsgs_jointState(jointState):
@@ -36,7 +36,6 @@ def recv_sensorMsgs_jointState(jointState):
 
         # Convert desired position to robot coordinates
         value = jointState.position[idx]  # radians [-1.57, 1.57]
-        value *= -1    # invert direction (FUTURE: FIX IN URDF)
         value /= 1.57  # convert [-1, 1]
         value *= 1000  # convert [-1000, 1000]
         value += 1500  # convert [500, 2500]
