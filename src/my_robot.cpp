@@ -16,11 +16,29 @@ public:
   // bool init(ros::NodeHandle &root_nh, ros::NodeHandle &robot_hw_nh) {
     // Create a JointStateHandle for each joint and register them with the 
     // JointStateInterface.
-    hardware_interface::JointStateHandle state_handle_a("joint1", &pos[0], &vel[0], &eff[0]);
-    jnt_state_interface.registerHandle(state_handle_a);
+    hardware_interface::JointStateHandle state_handle_shoulder_pan(
+      "shoulder_pan", &pos[0], &vel[0], &eff[0]);
+    jnt_state_interface.registerHandle(state_handle_shoulder_pan);
 
-    hardware_interface::JointStateHandle state_handle_b("joint2", &pos[1], &vel[1], &eff[1]);
-    jnt_state_interface.registerHandle(state_handle_b);
+    hardware_interface::JointStateHandle state_handle_shoulder_lift(
+      "shoulder_lift", &pos[1], &vel[1], &eff[1]);
+    jnt_state_interface.registerHandle(state_handle_shoulder_lift);
+
+    hardware_interface::JointStateHandle state_handle_elbow(
+      "elbow", &pos[2], &vel[2], &eff[2]);
+    jnt_state_interface.registerHandle(state_handle_elbow);
+
+    hardware_interface::JointStateHandle state_handle_wrist_flex(
+      "wrist_flex", &pos[3], &vel[3], &eff[3]);
+    jnt_state_interface.registerHandle(state_handle_wrist_flex);
+
+    hardware_interface::JointStateHandle state_handle_wrist_roll(
+      "wrist_roll", &pos[4], &vel[4], &eff[4]);
+    jnt_state_interface.registerHandle(state_handle_wrist_roll);
+
+    hardware_interface::JointStateHandle state_handle_grip_right(
+      "grip_right", &pos[5], &vel[5], &eff[5]);
+    jnt_state_interface.registerHandle(state_handle_grip_right);
 
     // Register the JointStateInterface containing the read only joints
     // with this robot's hardware_interface::RobotHW.
@@ -29,11 +47,29 @@ public:
     // Create a JointHandle (read and write) for each controllable joint
     // using the read-only joint handles within the JointStateInterface and 
     // register them with the JointPositionInterface.
-    hardware_interface::JointHandle pos_handle_a(jnt_state_interface.getHandle("joint1"), &cmd[0]);
-    jnt_pos_interface.registerHandle(pos_handle_a);
+    hardware_interface::JointHandle pos_handle_shoulder_pan(
+      jnt_state_interface.getHandle("shoulder_pan"), &cmd[0]);
+    jnt_pos_interface.registerHandle(pos_handle_shoulder_pan);
 
-    hardware_interface::JointHandle pos_handle_b(jnt_state_interface.getHandle("joint2"), &cmd[1]);
-    jnt_pos_interface.registerHandle(pos_handle_b);
+    hardware_interface::JointHandle pos_handle_shoulder_lift(
+      jnt_state_interface.getHandle("shoulder_lift"), &cmd[1]);
+    jnt_pos_interface.registerHandle(pos_handle_shoulder_lift);
+
+    hardware_interface::JointHandle pos_handle_elbow(
+      jnt_state_interface.getHandle("elbow"), &cmd[2]);
+    jnt_pos_interface.registerHandle(pos_handle_elbow);
+
+    hardware_interface::JointHandle pos_handle_wrist_flex(
+      jnt_state_interface.getHandle("wrist_flex"), &cmd[3]);
+    jnt_pos_interface.registerHandle(pos_handle_wrist_flex);
+
+    hardware_interface::JointHandle pos_handle_wrist_roll(
+      jnt_state_interface.getHandle("wrist_roll"), &cmd[4]);
+    jnt_pos_interface.registerHandle(pos_handle_wrist_roll);
+
+    hardware_interface::JointHandle pos_handle_grip_right(
+      jnt_state_interface.getHandle("grip_right"), &cmd[5]);
+    jnt_pos_interface.registerHandle(pos_handle_grip_right);
 
     // Register the JointPositionInterface containing the read/write joints
     // with this robot's hardware_interface::RobotHW.
@@ -44,8 +80,12 @@ public:
 
   // Read data from the robot hardware.
   void read(const ros::Time &time, const ros::Duration &period) {
-    pos[0] = cmd[0];
-    pos[1] = cmd[1];
+    pos[0] = cmd[0]; // shoulder_pan
+    pos[1] = cmd[1]; // shoulder_lift
+    pos[2] = cmd[2]; // elbow
+    pos[3] = cmd[3]; // wrist_flex
+    pos[4] = cmd[4]; // wrist_roll
+    pos[5] = cmd[5]; // grip_right
   }
 
   // Write commands to the robot hardware.
@@ -68,12 +108,12 @@ private:
 
   // Data member array to store the controller commands which are sent to the 
   // robot's resources (joints, actuators)
-  double cmd[2];
+  double cmd[6];
 
   // Data member arrays to store the state of the robot's resources (joints, sensors)
-  double pos[2];
-  double vel[2];
-  double eff[2];
+  double pos[6];
+  double vel[6];
+  double eff[6];
 };
 
 

@@ -6,12 +6,37 @@ learm:
     publish_rate: 50
 
   # Position controllers
-  joint1_position_controller:
+  shoulder_pan_position_controller:
     type: position_controllers/JointPositionController
-    joint: joint1
+    joint: shoulder_pan
+
+  shoulder_lift_position_controller:
+    type: position_controllers/JointPositionController
+    joint: shoulder_lift
+
+  elbow_position_controller:
+    type: position_controllers/JointPositionController
+    joint: elbow
+
+  wrist_flex_position_controller:
+    type: position_controllers/JointPositionController
+    joint: wrist_flex
+
+  wrist_roll_position_controller:
+    type: position_controllers/JointPositionController
+    joint: wrist_roll
+
+  grip_right_position_controller:
+    type: position_controllers/JointPositionController
+    joint: grip_right
 
   # Allow controller_manager controller_group to configure several controllers at once
   controller_groups:
     all:
       - joint_state_controller
-      - joint1_position_controller
+      - shoulder_pan_position_controller
+      - shoulder_lift_position_controller
+      - elbow_position_controller
+      - wrist_flex_position_controller
+      - wrist_roll_position_controller
+      - grip_right_position_controller

@@ -9,7 +9,7 @@ hacking:
 	ROS_NAMESPACE=/learm rosrun learm-ros my_robot &
 
 	# Does all the service calls that are mentioned below
-	ROS_NAMESPACE=/learm rosrun controller_manager spawner joint1_position_controller joint_state_controller
+	ROS_NAMESPACE=/learm rosrun controller_manager spawner joint_state_controller
 
 	# Spawns everything based on learm.yaml (parameters)
 	ROS_NAMESPACE=/learm rosrun controller_manager controller_group spawn all
@@ -22,7 +22,7 @@ hacking:
 	# rosservice call /learm/controller_manager/list_controllers
 
 	rostopic echo -n 1 /learm/joint_states
-	rostopic pub --once /learm/joint1_position_controller/command std_msgs/Float64 123456
+	rostopic pub --once /learm/elbow_position_controller/command std_msgs/Float64 123456
 
 	# Position controller docs: http://wiki.ros.org/robot_mechanism_controllers/JointPositionController
 
