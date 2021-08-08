@@ -205,7 +205,7 @@ catkin_install_python(PROGRAMS
 # catkin_add_nosetests(test)
 
 # Building C++ config from: http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(${catkin_INCLUDE_DIRS})
 
 # add_library(learm-ros include/learm-ros/my_robot.hpp)
 
@@ -217,5 +217,5 @@ add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 #add_dependencies(listener beginner_tutorials_generate_messages_cpp)
 
-add_executable(my_robot src/my_robot.cpp include/learm-ros/my_robot.hpp)
+add_executable(my_robot src/my_robot.cpp)
 target_link_libraries(my_robot ${catkin_LIBRARIES})
