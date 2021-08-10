@@ -26,22 +26,23 @@ servos = {
     "grip_right": xarm.Servo(1, -1),  # Flipped in URDF (open is close)
 }
 
-"""
-Convert model inputs (radians) to servo PWM number (500-2500)
-"""
-def convert(value):# radians [-1.57, 1.57]
+
+def forward(x):
+    """ Convert model inputs (radians) to servo PWM number (500-2500) """
+    value = x.data # radians [-1.57, 1.57]
     value /= 1.57  # convert [-1, 1]
     value *= 1000  # convert [-1000, 1000]
     value += 1500  # convert [500, 2500]
     return int(value)  # truncate decimals so library operates correctly
 
 
-def backward(value):# numberz [500, 2500]
+def backward(x):
+    """ Convert PWM number (500-2500) to model inputs (radians) """
+    value = float(x)# numberz [500, 2500]
     value -= 1500   # convert [-1000, 1000]
     value /= 1000   # convert [-1, 1]
-    value = float(value) # decimals are okay
     value *= 1.57   # radians
-    return value
+    return Float64(value)
 
 
 class subscriber(object):
@@ -49,7 +50,7 @@ class subscriber(object):
         self.servo_id = servos.get(name).servo_id
 
     def __call__(self, float64):
-        arm.setPosition(self.servoid, position=convert(float64), wait=False)
+        arm.setPosition(self.servoid, position=forward(float64), wait=False)
 
 
 def main():
