@@ -158,6 +158,7 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
   scripts/follower.py
+  scripts/driver.py
 #   TODO: add more scripts in here for fun
 #   scripts/my_python_script
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
