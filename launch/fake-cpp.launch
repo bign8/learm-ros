@@ -1,0 +1,28 @@
+<launch>
+
+	<!-- rosparam load config/learm.yaml -->
+	<rosparam file="$(find learm-ros)/config/learm.yaml" />
+
+	<!-- ROS_NAMESPACE=learm rosrun learm-ros my_robot -->
+	<node name="my_robot" pkg="learm-ros" type="my_robot" ns="learm" required="true" />
+
+	<!-- ROS_NAMESPACE=learm rosrun controller_manager controller_group spawn all -->
+	<node name="starter" pkg="controller_manager" type="controller_group" args="spawn all" ns="learm" />
+	<!--
+	Startup looks like:
+		ROS_NAMESPACE=/learm rosrun controller_manager spawner joint_state_controller
+
+		# Found configuration over at: https://answers.ros.org/question/264444/controller-manager-wont-load-the-controllers-effort_controllers-and-joint_state_controller/
+		rosservice call /learm/controller_manager/load_controller "name: 'joint1_position_controller'"
+		rosservice call /learm/controller_manager/load_controller "name: 'joint_state_controller'"
+		rosservice call /learm/controller_manager/switch_controller "{start_controllers: ['joint1_position_controller'], stop_controllers: [], strictness: 2}"
+		rosservice call /learm/controller_manager/switch_controller "{start_controllers: ['joint_state_controller'], stop_controllers: [], strictness: 2}"
+		rosservice call /learm/controller_manager/list_controllers
+
+	Teardown:
+		rosservice call /learm/controller_manager/switch_controller "{stop_controllers: ['joint_state_controller', 'joint1_position_controller'], strictness: 2}"
+		rosservice call /learm/controller_manager/unload_controller "name: 'joint1_position_controller'"
+		rosservice call /learm/controller_manager/unload_controller "name: 'joint_state_controller'"
+		rosservice call /learm/controller_manager/list_controllers
+	-->
+</launch>
